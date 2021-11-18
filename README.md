@@ -10,3 +10,4 @@ WHEN I click on a date
 THEN Im presented with a pop up to list events
 
 Live Url: https://clarkamusprimee.github.io/Project-R.I.V.E.R.S./
+Github: https://github.com/clarkamusprimee/Project-R.I.V.E.R.S.
