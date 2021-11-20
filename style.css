@@ -1,5 +1,13 @@
 /*global*/
+.activity form-control
+{
+  width:200px;
+}
 
+.columns
+{
+  align-items: baseline;
+}
 h1 {
     text-align: center;
   }
@@ -21,6 +29,11 @@ h1 {
   .card-header {
     background-color: #f3e1c0;
     font-weight: bold;
+    margin-left:10px;
+  }
+  .card-body
+  {
+    background-color: #f7f7f7;
   }
   
   /*months*/
@@ -95,8 +108,12 @@ h1 {
   }
   /*daily planner*/
   #dayDate {
-    background-color: #d1ecf1 !important;
+    background-color: #f3e1c0 !important;
     font-weight: bold;
+    padding: 1.5px;
+    margin-left: -11px;
+    
+    
   }
   
   .time {
@@ -105,4 +122,8 @@ h1 {
   
   .save {
     width: 50px;
+  }
+  .plannerDayDates
+  {
+    padding-top: 20px;
   }

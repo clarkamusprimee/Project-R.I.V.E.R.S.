@@ -1,6 +1,6 @@
 $(document).ready(function () {
   /* ******************** Global variables ******************** */
-
+  
   var activitiesArray = [
     {
       date: "",
@@ -314,24 +314,27 @@ $(document).ready(function () {
       if (current > agendaHour) {
         $("#activities")
           .children()
-          .eq(index)
+          .eq(index) 
           .children()
           .eq(1)
-          .css("background", "#e2e3e5");
+          .css("background", "#e2e3e5")
+          .css("width", "500px");
       } else if (current === agendaHour) {
         $("#activities")
           .children()
           .eq(index)
           .children()
           .eq(1)
-          .css("background", "#bee5eb");
+          .css("background", "#bee5eb")
+          .css("width", "500px");
       } else {
         $("#activities")
           .children()
           .eq(index)
           .children()
           .eq(1)
-          .css("background", "white");
+          .css("background", "white")
+          .css("width", "500px");
       }
     });
 
@@ -408,4 +411,5 @@ $(document).ready(function () {
     $("#prevM").on("click", changeDate);
     $("#nextM").on("click", changeDate);
   }
+  
 });
