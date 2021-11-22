@@ -15,7 +15,7 @@ This project really put us into perspective as to how far behind we actually are
 
 This is what the website looks like, and what it does is provide a calendar with times in which you can input on any day you choose
 
-![Image of our webiste](website.png)
+![Image of our webiste](Website.PNG)
 
 Live Url: https://clarkamusprimee.github.io/Project-RIVERS/
 Github: https://github.com/clarkamusprimee/Project-RIVERS
