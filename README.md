@@ -13,5 +13,9 @@ Group project number 1 was definitly a challenge for us. Our confindence with AP
 
 This project really put us into perspective as to how far behind we actually are. Myself - Elias, have been behind in modules probably since the portfolio challenge we did those many weeks ago and havnt caught up since. The team work we have isnt the problem in this case as we are all good friends, personally its the lack of knowledge I have in javascript that most likely weighed us down in this project.
 
-Live Url: https://clarkamusprimee.github.io/Project-R.I.V.E.R.S./
-Github: https://github.com/clarkamusprimee/Project-R.I.V.E.R.S.
+This is what the website looks like, and what it does is provide a calendar with times in which you can input on any day you choose
+
+![Image of our webiste](website.png)
+
+Live Url: https://clarkamusprimee.github.io/Project-RIVERS/
+Github: https://github.com/clarkamusprimee/Project-RIVERS
