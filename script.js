@@ -6,65 +6,65 @@ $(document).ready(function () {
       date: "",
       time: moment().startOf("day").add(8, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(9, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(10, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(11, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(12, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(13, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(14, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(15, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(16, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "< class='far fa-save'></i>",
     },
     {
       date: "",
       time: moment().startOf("day").add(17, "hours").format("h:mm a"),
       activity: "",
-      button: "<i class='far fa-save'></i>",
+      button: "<class='far fa-save'></i>",
     },
   ];
 
-  var displayedDate = moment();
+  var currentDay = moment();
   var firstWeekDay;
   var startCell;
   var countedDatesArray = [];
@@ -74,8 +74,8 @@ $(document).ready(function () {
 
   /* ******************** Function declarations ******************** */
   function init() {
-    $("#year").text(displayedDate.format("YYYY"));
-    $("#month").text(displayedDate.format("MMMM"));
+    $("#year").text(currentDay.format("YYYY"));
+    $("#month").text(currentDay.format("MMMM"));
     countLocalStorageActivitiesDates();
     createTBody();
     displayDayDate();
@@ -88,12 +88,12 @@ $(document).ready(function () {
 
     // Find the First Week Day of the Month
     var firstDayFlag = false;
-    var lastDayFlag = 0;
+    var lastDay = 0;
     var firstDayStr =
-      displayedDate.format("YYYY") + displayedDate.format("MM") + "01";
-    var firstDayMoment = moment(firstDayStr);
+      currentDay.format("YYYY") + currentDay.format("MM") + "01";
+    var FirstDay = moment(firstDayStr);
     firstWeekDay = moment(firstDayStr).format("dddd");
-    var lastMonthDay = displayedDate.endOf("month");
+    var lastMonthDay = currentDay.endOf("month");
 
     // Define the Table Cell correspondent to the First Week Day
     switch (firstWeekDay) {
@@ -122,59 +122,59 @@ $(document).ready(function () {
 
     // Create the new Table Cells
     for (r = 0; r < 6; r++) {
-      var newRow = $("<tr>");
-      newRow.attr("id", "row" + r);
+      var newrow = $("<tr>");
+      newrow.attr("id", "row" + r);
       for (d = 0; d < 7; d++) {
         var newCell = $("<td>");
-        var newSpanNumDiv = $("<div>");
-        var newSpanNum = $("<p>");
-        var newSpanText = $("<p>");
-        newSpanNumDiv.attr("class", "dayNumDiv input-group-prepend");
-        newSpanNum.attr("class", "dayNum");
-        newSpanText.attr("class", "dayText");
-        newSpanNumDiv.append(newSpanNum);
+        var numDiv = $("<div>");
+        var spannum = $("<p>");
+        var newtext = $("<p>");
+        numDiv.attr("class", "dayNumDiv input-group-prepend");
+        spannum.attr("class", "dayNum");
+        newtext.attr("class", "dayText");
+        numDiv.append(spannum);
         var rStr = String(r);
         var dStr = String(d);
         var compCell = "cell" + rStr + dStr;
-        var momentStr = firstDayMoment.toString();
+        var momentStr = FirstDay.toString();
         if (startCell === compCell) {
           firstDayFlag = true;
         }
         if (firstDayFlag) {
-          if (lastDayFlag != 2) {
-            newSpanNum.text(firstDayMoment.format("Do"));
+          if (lastDay != 2) {
+            spannum.text(FirstDay.format("Do"));
             newCell.attr("moment", momentStr);
 
             // Display Activities Count
-            countedDatesArray.forEach(function (countedDatesObject) {
+            countedDatesArray.forEach(function (countedDates) {
               if (
-                countedDatesObject.current ===
+                countedDates.current ===
                 moment(newCell.attr("moment")).format("MMMM Do YYYY")
               ) {
-                newSpanText.text(`Acts: ${countedDatesObject.cnt}`);
-                newCell.append(newSpanText);
+                newtext.text(`Acts: ${countedDates.cnt}`);
+                newCell.append(newtext);
               }
             });
           }
-          firstDayMoment = firstDayMoment.add(1, "day");
+          FirstDay = FirstDay.add(1, "day");
         }
         newCell.attr("class", "cell");
         newCell.attr("id", "cell" + r + d);
-        newCell.prepend(newSpanNumDiv);
+        newCell.prepend(numDiv);
 
-        newRow.append(newCell);
-        if (lastDayFlag === 1) {
-          lastDayFlag = 2;
+        newrow.append(newCell);
+        if (lastDay === 1) {
+          lastDay = 2;
         }
-        if (firstDayMoment.format("Do") === lastMonthDay.format("Do")) {
-          lastDayFlag = 1;
+        if (FirstDay.format("Do") === lastMonthDay.format("Do")) {
+          lastDay = 1;
         }
       }
-      if (lastDayFlag != 3) {
-        $("tbody").append(newRow);
+      if (lastDay != 3) {
+        $("tbody").append(newrow);
       }
-      if (lastDayFlag === 2) {
-        lastDayFlag = 3;
+      if (lastDay === 2) {
+        lastDay = 3;
       }
     }
     $("tbody").hide();
@@ -200,10 +200,10 @@ $(document).ready(function () {
     for (var i = 0; i < datesArray.length; i++) {
       if (datesArray[i] != current) {
         if (cnt > 0) {
-          var countedDatesObject = {};
-          countedDatesObject.current = current;
-          countedDatesObject.cnt = cnt;
-          countedDatesArray.push(countedDatesObject);
+          var countedDates = {};
+          countedDates.current = current;
+          countedDates.cnt = cnt;
+          countedDatesArray.push(countedDates);
         }
         current = datesArray[i];
         cnt = 1;
@@ -212,10 +212,10 @@ $(document).ready(function () {
       }
     }
     if (cnt > 0) {
-      var countedDatesObject = {};
-      countedDatesObject.current = current;
-      countedDatesObject.cnt = cnt;
-      countedDatesArray.push(countedDatesObject);
+      var countedDates = {};
+      countedDates.current = current;
+      countedDates.cnt = cnt;
+      countedDatesArray.push(countedDates);
     }
     
   }
@@ -223,22 +223,22 @@ $(document).ready(function () {
   function changeDate() {
     switch ($(this).attr("id")) {
       case "nextY":
-        displayedDate = displayedDate.add(1, "years");
+        currentDay = currentDay.add(1, "years");
         break;
       case "prevY":
-        displayedDate = displayedDate.subtract(1, "years");
+        currentDay = currentDay.subtract(1, "years");
         break;
       case "nextM":
-        displayedDate = displayedDate.add(1, "months");
+        currentDay = currentDay.add(1, "months");
         break;
       case "prevM":
-        displayedDate = displayedDate.subtract(1, "months");
+        currentDay = currentDay.subtract(1, "months");
         break;
     }
 
     // Update the Month View
-    $("#year").text(displayedDate.format("YYYY"));
-    $("#month").text(displayedDate.format("MMMM"));
+    $("#year").text(currentDay.format("YYYY"));
+    $("#month").text(currentDay.format("MMMM"));
     createTBody();
 
     // Update eventListeners
